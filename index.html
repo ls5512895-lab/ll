@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f9b9c9">
+<meta name="description" content="给宋慧颖的21岁生日惊喜">
+<title>宋慧颖 · 生日快乐</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--pink:#ff9db9;--yellow:#ffe7a5;--ink:#533b55;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;font-family:"Noto Sans SC",sans-serif}
+body{overflow:hidden;background:#180f2c}
+button{font:inherit;-webkit-tap-highlight-color:transparent}
+.page{position:fixed;inset:0;display:none;overflow:hidden}
+.page.active{display:flex}
+#intro{align-items:center;justify-content:flex-start;flex-direction:column;padding:calc(26px + var(--safe-top)) 18px calc(18px + var(--safe-bottom));color:var(--ink);background:radial-gradient(circle at 12% 14%,rgba(255,255,255,.78),transparent 27%),radial-gradient(circle at 88% 75%,rgba(255,255,255,.45),transparent 25%),linear-gradient(145deg,#ffb8c9 0%,#ffd1b5 48%,#fff0b3 100%);isolation:isolate}
+#intro:before,#intro:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);z-index:-1;pointer-events:none}
+#intro:before{width:230px;height:230px;left:-100px;top:30%;background:rgba(255,255,255,.22)}
+#intro:after{width:260px;height:260px;right:-130px;top:4%;background:rgba(255,240,185,.35)}
+.intro-head{text-align:center;margin-top:4px;z-index:2}
+.eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#9b6b76;font-weight:700}
+.main-title{font-family:"Ma Shan Zheng",serif;font-size:clamp(46px,13vw,72px);line-height:1.15;margin:8px 0 0;white-space:nowrap;overflow:hidden;display:inline-block;max-width:100%;color:#7b465d;text-shadow:0 4px 0 rgba(255,255,255,.4);clip-path:inset(0 100% 0 0);animation:writeIn 2.2s .25s steps(12,end) forwards}
+@keyframes writeIn{to{clip-path:inset(0 0 0 0)}}
+.english{font-family:"Caveat",cursive;font-size:clamp(26px,7vw,38px);color:#a86679;margin-top:0;opacity:0;animation:fadeUp .8s 1.6s forwards}
+.heart-stage{position:relative;width:min(88vw,390px);height:min(88vw,390px);margin:9px auto 4px;flex:0 0 auto}
+.heart-cards{position:absolute;inset:0}
+.heart-card{position:absolute;width:18%;height:14%;border-radius:13px;background:var(--c);box-shadow:0 8px 18px rgba(123,74,83,.13),inset 0 1px 0 rgba(255,255,255,.8);left:var(--x);top:var(--y);transform:translate(-50%,-50%) rotate(var(--r)) scale(.1);opacity:0;animation:cardFly .72s cubic-bezier(.18,.85,.25,1.2) forwards;animation-delay:var(--d)}
+@keyframes cardFly{to{opacity:.96;transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}}
+.glass-card{position:absolute;left:50%;top:49%;transform:translate(-50%,-50%) scale(.86);width:min(75%,290px);padding:18px 13px 17px;text-align:center;border:1px solid rgba(255,255,255,.7);border-radius:24px;background:rgba(255,255,255,.53);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 14px 35px rgba(129,77,93,.16);opacity:0;animation:popIn .8s 2.4s cubic-bezier(.2,1.35,.35,1) forwards;z-index:3}
+@keyframes popIn{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.glass-card .tiny{font-size:10px;letter-spacing:.2em;color:#a26d7c;font-weight:700}
+.glass-card h2{font-size:clamp(22px,6vw,28px);margin:7px 0 2px;color:#814d65}
+.glass-card .age{font-family:"Caveat",cursive;font-size:26px;color:#d16f8c}
+.glass-card p{font-size:12px;line-height:1.7;margin:5px 0 0;color:#765b67}
+.motif{position:absolute;z-index:5;border:0;background:rgba(255,255,255,.72);box-shadow:0 5px 15px rgba(110,70,90,.15);width:43px;height:43px;border-radius:50%;font-size:23px;display:grid;place-items:center;cursor:pointer;transition:transform .2s}
+.motif:active{transform:scale(.88)}
+.motif:nth-of-type(1){left:3%;top:32%}.motif:nth-of-type(2){right:5%;top:29%}.motif:nth-of-type(3){left:11%;bottom:22%}.motif:nth-of-type(4){right:9%;bottom:20%}.motif:nth-of-type(5){left:43%;top:2%}.motif:nth-of-type(6){left:44%;bottom:2%}
+.photo-note{font-size:10px;color:#936c78;text-align:center;margin-top:-1px;letter-spacing:.06em}
+.primary-btn{border:0;border-radius:999px;padding:14px 25px;background:linear-gradient(100deg,#ff7fa8,#ffb36e);color:#fff;font-weight:800;letter-spacing:.08em;box-shadow:0 9px 22px rgba(202,104,126,.27);cursor:pointer;transition:transform .2s,box-shadow .2s;z-index:3}
+.primary-btn:active,.tool-btn:active{transform:scale(.96)}
+.intro-footer{margin-top:auto;padding-top:8px;display:flex;flex-direction:column;align-items:center;gap:9px}
+.signature{font-family:"Caveat",cursive;font-size:17px;color:#a36f7b}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(25,14,33,.72);display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(8px)}
+.modal.open{display:flex}
+.modal-panel{width:min(100%,420px);min-height:260px;border-radius:22px;background:#fff8f7;color:#654b5a;padding:18px;box-shadow:0 20px 70px rgba(0,0,0,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.modal-close{position:absolute;right:12px;top:10px;border:0;background:#f4e2e6;color:#745261;border-radius:50%;width:34px;height:34px;font-size:20px}
+.modal-photo{max-width:100%;max-height:70vh;object-fit:contain;display:none}
+.modal-placeholder{padding:35px 15px;text-align:center;line-height:1.8}
+.modal-placeholder strong{display:block;font-size:18px;margin-bottom:6px}
+#cakePage{background:radial-gradient(ellipse at 50% 42%,#39245c 0%,#211638 48%,#100d20 100%);color:#fff;display:none;flex-direction:column;padding:calc(12px + var(--safe-top)) 14px calc(12px + var(--safe-bottom))}
+#cakePage.active{display:flex}
+.cake-topbar{height:44px;display:flex;align-items:center;justify-content:space-between;z-index:3;flex:0 0 auto}
+.back-btn{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 13px;color:#f7eaff;background:rgba(255,255,255,.08);font-size:12px}
+.cake-heading{text-align:center;font-family:"Caveat",cursive;font-size:25px;letter-spacing:.08em;color:#f7d6ff}
+.top-spacer{width:76px}
+.cake-subtitle{text-align:center;color:#bba9d5;font-size:11px;letter-spacing:.14em;margin:1px 0 0;z-index:2}
+.canvas-wrap{position:relative;flex:1;min-height:0;width:100%;margin:0 auto;touch-action:none}
+#cakeCanvas{width:100%;height:100%;display:block;touch-action:none}
+.blessing-pop{position:absolute;left:50%;top:21%;transform:translate(-50%,12px) scale(.8);opacity:0;pointer-events:none;width:min(88%,350px);text-align:center;padding:16px 18px;border-radius:20px;border:1px solid rgba(255,223,170,.55);background:rgba(34,20,57,.78);backdrop-filter:blur(10px);color:#fff0cb;box-shadow:0 0 35px rgba(255,170,210,.22);transition:opacity .55s,transform .55s;z-index:2}
+.blessing-pop.show{opacity:1;transform:translate(-50%,0) scale(1)}
+.blessing-pop strong{display:block;font-size:18px;margin-bottom:6px;color:#ffe6ad}
+.blessing-pop p{font-size:12px;line-height:1.8;margin:0;color:#f6e7fa}
+.cake-hint{text-align:center;font-size:11px;color:#c4b3d9;margin:0 0 9px;flex:0 0 auto}
+.controls{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:480px;width:100%;margin:0 auto;flex:0 0 auto}
+.tool-btn{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.09);color:#f8eaff;border-radius:999px;padding:10px 13px;font-size:11px;cursor:pointer;min-height:38px;transition:transform .2s,background .2s}
+.tool-btn.accent{background:linear-gradient(100deg,#d77baf,#a58bdb);border-color:transparent;color:white;font-weight:700}
+.toast{position:fixed;z-index:80;left:50%;bottom:calc(105px + var(--safe-bottom));transform:translate(-50%,15px);opacity:0;pointer-events:none;background:rgba(25,17,39,.9);border:1px solid rgba(255,255,255,.16);color:#fff;padding:10px 15px;border-radius:999px;font-size:12px;transition:opacity .25s,transform .25s;white-space:nowrap;max-width:90vw}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:600px){.heart-stage{width:390px;height:390px}.intro-footer{margin-top:4px}#cakePage{padding-left:24px;padding-right:24px}.canvas-wrap{max-width:560px}}
+@media(max-height:700px){#intro{padding-top:calc(12px + var(--safe-top))}.main-title{font-size:48px}.heart-stage{width:min(76vw,315px);height:min(76vw,315px);margin:2px auto}.glass-card{padding:12px}.motif{width:37px;height:37px;font-size:20px}.intro-footer{gap:5px}.primary-btn{padding:11px 22px}.cake-hint{margin-bottom:5px}.tool-btn{padding:8px 11px}}
+@media(prefers-color-scheme:dark){#intro{filter:saturate(.94)}.modal-panel{background:#21182a;color:#f8eaf0}.modal-close{background:#39283e;color:#f6dce8}.photo-note{color:#f1c3d1}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.main-title{clip-path:none}.english{opacity:1}.heart-card{opacity:.96;transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}.glass-card{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+</style>
+</head>
+<body>
+<main>
+<section id="intro" class="page active" aria-label="生日祝福开场">
+  <header class="intro-head">
+    <div class="eyebrow">A LITTLE SURPRISE FOR YOU</div>
+    <h1 class="main-title">生日快乐</h1>
+    <div class="english">Happy Birthday!</div>
+  </header>
+  <div class="heart-stage" aria-label="马卡龙爱心卡片">
+    <div class="heart-cards" id="heartCards"></div>
+    <div class="glass-card">
+      <div class="tiny">TODAY IS YOUR DAY</div>
+      <h2>宋慧颖</h2>
+      <div class="age">21 years old ✦</div>
+      <p>愿你每天都有好心情！</p>
+    </div>
+    <button class="motif" type="button" data-photo="0" aria-label="雏菊照片位">🌼</button>
+    <button class="motif" type="button" data-photo="1" aria-label="郁金香照片位">🌷</button>
+    <button class="motif" type="button" data-photo="2" aria-label="小星星照片位">⭐</button>
+    <button class="motif" type="button" data-photo="3" aria-label="小熊照片位">🧸</button>
+    <button class="motif" type="button" data-photo="4" aria-label="兔子照片位">🐰</button>
+    <button class="motif" type="button" data-photo="5" aria-label="蝴蝶照片位">🦋</button>
+  </div>
+  <div class="photo-note">点点小图案，打开专属照片位 · 照片稍后补上</div>
+  <div class="intro-footer">
+    <button class="primary-btn" id="enterCake" type="button">进入星河蛋糕　✦</button>
+    <div class="signature">from your friend ♡</div>
+  </div>
+</section>
+
+<section id="cakePage" class="page" aria-label="星河蛋糕互动页面">
+  <div class="cake-topbar">
+    <button class="back-btn" id="backHeart" type="button">← 返回爱心</button>
+    <div class="cake-heading">A Cake for You</div>
+    <div class="top-spacer"></div>
+  </div>
+  <div class="cake-subtitle">MAKE A WISH · 许个愿吧</div>
+  <div class="canvas-wrap" id="canvasWrap">
+    <canvas id="cakeCanvas" aria-label="可以拖动旋转的生日蛋糕"></canvas>
+    <div class="blessing-pop" id="blessing">
+      <strong>嘿！21岁快乐！🎉</strong>
+      <p>新的一岁，继续做那个快乐又有趣的自己。愿生活常有小惊喜，想做的事都能慢慢实现，开心的日子多一点，再多一点！</p>
+    </div>
+  </div>
+  <p class="cake-hint">按住蛋糕拖动，可以旋转视角 · 点一下蜡烛火焰，试试许愿</p>
+  <div class="controls">
+    <button class="tool-btn accent" id="micBtn" type="button">🎤 对着麦克风吹灭</button>
+    <button class="tool-btn" id="fireworkBtn" type="button">🎆 放个烟花</button>
+    <button class="tool-btn" id="themeBtn" type="button">🎂 切换蛋糕配色</button>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="photoModal" role="dialog" aria-modal="true" aria-label="照片预览">
+  <div class="modal-panel">
+    <button class="modal-close" id="closeModal" type="button" aria-label="关闭">×</button>
+    <img class="modal-photo" id="modalPhoto" alt="生日回忆照片">
+    <div class="modal-placeholder" id="modalPlaceholder">
+      <div style="font-size:38px">📷</div>
+      <strong>这张照片，等你来放进来</strong>
+      <span>照片位已经留好啦。把照片发给我，之后就能替换成完整大图，不会裁剪。</span>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+const $ = (id)=>document.getElementById(id);
+const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const PHOTO_SLOTS = [null,null,null,null,null,null]; // 后续将照片转为 data:image/...;base64,... 填入这里
+const cardColors = ["#ffd5df","#fff0b9","#d9e8ff","#d9f1df","#eadcff","#ffe0c5","#f8d6ee","#d4edf0"];
+const cardPositions = [
+ [50,17,-8],[35,18,7],[65,18,-5],[22,30,-10],[40,31,5],[60,31,-6],[78,30,9],
+ [16,46,7],[32,46,-8],[50,45,4],[68,46,-5],[84,46,8],[27,61,8],[43,62,-5],
+ [57,62,7],[73,61,-8],[38,76,-7],[62,76,6],[50,88,-3]
+];
+cardPositions.forEach((p,i)=>{
+ const el=document.createElement("span");
+ el.className="heart-card";
+ el.style.setProperty("--x",p[0]+"%");
+ el.style.setProperty("--y",p[1]+"%");
+ el.style.setProperty("--r",p[2]+"deg");
+ el.style.setProperty("--c",cardColors[i%cardColors.length]);
+ el.style.setProperty("--d",(0.12+i*.085)+"s");
+ $("heartCards").appendChild(el);
+});
+function toast(message){
+ const t=$("toast");t.textContent=message;t.classList.add("show");
+ clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove("show"),2600);
+}
+function openPhoto(index){
+ const modal=$("photoModal"),img=$("modalPhoto"),placeholder=$("modalPlaceholder");
+ const src=PHOTO_SLOTS[index];
+ if(src){img.src=src;img.style.display="block";placeholder.style.display="none";}
+ else{img.removeAttribute("src");img.style.display="none";placeholder.style.display="block";}
+ modal.classList.add("open");
+}
+document.querySelectorAll(".motif").forEach(btn=>btn.addEventListener("click",()=>openPhoto(Number(btn.dataset.photo))));
+function closePhoto(){$("photoModal").classList.remove("open");}
+$("closeModal").addEventListener("click",closePhoto);
+$("photoModal").addEventListener("click",e=>{if(e.target===$("photoModal"))closePhoto();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closePhoto();});
+
+const intro=$("intro"),cakePage=$("cakePage"),canvas=$("cakeCanvas"),wrap=$("canvasWrap"),ctx=canvas.getContext("2d");
+let raf=0, running=false, W=0,H=0,dpr=1,rotation=0,tilt=0,drag=null,flameOn=true,themeIndex=0,stars=[],sparks=[],hearts=[],mouseDots=[];
+const themes=[
+ {side:"#d8799f",light:"#ffc6d9",dark:"#8b3f78",cream:"#fff0e8",accent:"#f5c66e",berry:"#ed5a75"},
+ {side:"#7e9fd0",light:"#d6e7ff",dark:"#465f9c",cream:"#f5f2ff",accent:"#f6d58b",berry:"#e96c83"},
+ {side:"#8bbba6",light:"#d8f3df",dark:"#477c71",cream:"#fff4e7",accent:"#f4cb76",berry:"#d95f70"}
+];
+function resize(){
+ const rect=wrap.getBoundingClientRect();W=Math.max(280,rect.width);H=Math.max(300,rect.height);dpr=Math.min(window.devicePixelRatio||1,2);
+ canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+ stars=Array.from({length:Math.max(45,Math.floor(W*H/6500))},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.35+.25,a:Math.random()*.6+.2,phase:Math.random()*6.28}));
+ if(!prefersReduced)startLoop();else draw(performance.now());
+}
+function ellipse(x,y,rx,ry,fill,stroke,lineWidth){
+ ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);
+ if(fill){ctx.fillStyle=fill;ctx.fill();}
+ if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lineWidth||1;ctx.stroke();}
+}
+function roundedRect(x,y,w,h,r,fill,stroke,lw){
+ ctx.beginPath();ctx.roundRect(x,y,w,h,r);
+ if(fill){ctx.fillStyle=fill;ctx.fill();}
+ if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||1;ctx.stroke();}
+}
+function drawTier(x,top,w,h,depth,palette,drips){
+ const ry=depth;
+ const side=ctx.createLinearGradient(x-w/2,top,x+w/2,top+h);
+ side.addColorStop(0,palette.light);side.addColorStop(.42,palette.side);side.addColorStop(1,palette.dark);
+ ctx.fillStyle=side;
+ ctx.fillRect(x-w/2,top,w,h);
+ ellipse(x,top+h,w/2,ry,palette.dark);
+ ellipse(x,top,w/2,ry,palette.light,palette.accent,2);
+ const icing=ctx.createLinearGradient(0,top-ry,0,top+h*.35);
+ icing.addColorStop(0,"#fffdf8");icing.addColorStop(1,palette.cream);
+ ctx.beginPath();ctx.moveTo(x-w/2,top);
+ ctx.bezierCurveTo(x-w*.38,top-ry*1.05,x+w*.34,top-ry*1.05,x+w/2,top);
+ if(drips){
+  for(let i=0;i<7;i++){
+   const px=x+w/2-i*w/7;
+   const drop=(i%3===0?12:(i%3===1?7:16));
+   ctx.lineTo(px,top+drop);
+   ctx.quadraticCurveTo(px-5,top+drop+5,px-9,top+drop);
+   ctx.lineTo(px-w/7,top);
+  }
+ }else{ctx.lineTo(x-w/2,top);}
+ ctx.closePath();ctx.fillStyle=icing;ctx.fill();ctx.strokeStyle="rgba(255,255,255,.65)";ctx.lineWidth=1;ctx.stroke();
+ ctx.strokeStyle=palette.accent;ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(x,top,w/2,ry,0,Math.PI,Math.PI*2);ctx.stroke();
+ for(let i=0;i<26;i++){
+  const a=Math.PI+(i/25)*Math.PI;
+  const px=x+Math.cos(a)*(w/2-3),py=top+h+Math.sin(a)*ry*.9;
+  ellipse(px,py,2.2,2.2,"#fff1cf","rgba(212,166,94,.7)",.5);
+ }
+ // sugar sprinkles on the front face
+ for(let i=0;i<19;i++){
+  const px=x-w*.43+(i*37%(w*.86)),py=top+h*.25+(i*17%Math.max(12,h*.56));
+  ctx.save();ctx.translate(px,py);ctx.rotate((i%5-2)*.25);roundedRect(-2,-.7,5,1.5,1,i%2?"#fff3d8":"#f6b9cf");ctx.restore();
+ }
+}
+function drawStrawberry(x,y,s){
+ ctx.save();ctx.translate(x,y);ctx.scale(s,s);
+ ctx.beginPath();ctx.moveTo(0,-13);ctx.bezierCurveTo(-18,-21,-20,0,0,15);ctx.bezierCurveTo(20,0,18,-21,0,-13);
+ const g=ctx.createLinearGradient(-10,-14,10,12);g.addColorStop(0,"#ff9b9d");g.addColorStop(1,"#c93259");ctx.fillStyle=g;ctx.fill();
+ ctx.strokeStyle="#ffcf8a";ctx.lineWidth=1;
+ for(let i=0;i<7;i++){ellipse((i%3-1)*6,(i-3)*3,1,1,"#ffe5a5");}
+ ctx.fillStyle="#7ac08a";ctx.beginPath();ctx.moveTo(0,-12);ctx.lineTo(-9,-19);ctx.lineTo(-2,-16);ctx.lineTo(2,-22);ctx.lineTo(4,-15);ctx.lineTo(11,-18);ctx.closePath();ctx.fill();
+ ctx.restore();
+}
+function drawMacaron(x,y,s,pal){
+ ctx.save();ctx.translate(x,y);ctx.scale(s,s);
+ ellipse(0,4,16,7,pal.dark);ellipse(0,-1,16,7,pal.light);ellipse(0,2,15,4,pal.cream);
+ ctx.strokeStyle="rgba(255,255,255,.65)";ctx.lineWidth=1;ctx.beginPath();ctx.ellipse(0,-1,14,5,0,Math.PI,Math.PI*2);ctx.stroke();ctx.restore();
+}
+function makeMouse(){
+ const dots=[];
+ function circle(cx,cy,r,count){for(let i=0;i<count;i++){const a=Math.random()*Math.PI*2,rr=Math.sqrt(Math.random())*r;dots.push({x:cx+Math.cos(a)*rr,y:cy+Math.sin(a)*rr,r:1.2+Math.random()*1.4,phase:Math.random()*6.28});}}
+ circle(-24,-25,14,55);circle(24,-25,14,55);circle(0,-7,24,110);circle(0,22,17,70);
+ return dots;
+}
+mouseDots=makeMouse();
+function drawMouse(x,y,time){
+ ctx.save();ctx.translate(x,y);
+ mouseDots.forEach((p,i)=>{
+  const tw=.72+.28*Math.sin(time*.002+p.phase);
+  ctx.globalAlpha=tw;ctx.fillStyle=i%7===0?"#f6c1c8":(i%5===0?"#d7d9e4":"#9da4b6");
+  ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+ });
+ ctx.globalAlpha=1;
+ // ears and face details
+ ellipse(-24,-25,8,9,"rgba(244,169,186,.78)");ellipse(24,-25,8,9,"rgba(244,169,186,.78)");
+ ellipse(-8,-8,2.6,3.2,"#292333");ellipse(8,-8,2.6,3.2,"#292333");ellipse(0,1,3.3,2.5,"#ef91a7");
+ ctx.strokeStyle="rgba(255,232,238,.8)";ctx.lineWidth=1;
+ ctx.beginPath();ctx.moveTo(-3,2);ctx.lineTo(-18,0);ctx.moveTo(-3,4);ctx.lineTo(-17,7);ctx.moveTo(3,2);ctx.lineTo(18,0);ctx.moveTo(3,4);ctx.lineTo(17,7);ctx.stroke();
+ ctx.restore();
+}
+function burst(x,y,count,colorful){
+ for(let i=0;i<count;i++){const a=Math.random()*Math.PI*2,s=1+Math.random()*4.3;sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:55+Math.random()*35,max:90,size:1.5+Math.random()*2.7,hue:colorful?Math.random()*360:330+Math.random()*45});}
+}
+function drawFlame(x,y,time){
+ if(!flameOn)return;
+ const pulse=1+Math.sin(time*.012)*.09;
+ ctx.save();ctx.translate(x,y);ctx.scale(pulse,1);
+ const g=ctx.createRadialGradient(0,0,1,0,0,19);g.addColorStop(0,"#fff9c6");g.addColorStop(.35,"#ffdf7b");g.addColorStop(1,"rgba(255,130,85,0)");
+ ellipse(0,0,19,24,g);
+ ctx.beginPath();ctx.moveTo(0,13);ctx.bezierCurveTo(-15,-3,-4,-15,1,-22);ctx.bezierCurveTo(4,-11,16,-4,0,13);ctx.fillStyle="#ff9d5e";ctx.fill();
+ ctx.beginPath();ctx.moveTo(0,10);ctx.bezierCurveTo(-7,0,-1,-8,2,-12);ctx.bezierCurveTo(7,-4,8,3,0,10);ctx.fillStyle="#fff6bd";ctx.fill();ctx.restore();
+}
+function draw(time){
+ if(!ctx||!W||!H)return;
+ ctx.clearRect(0,0,W,H);
+ // stars
+ stars.forEach(s=>{const alpha=s.a*(prefersReduced?1:(.65+.35*Math.sin(time*.001+s.phase)));ctx.globalAlpha=alpha;ellipse(s.x,s.y,s.r,s.r,"#fff");});
+ ctx.globalAlpha=1;
+ const pal=themes[themeIndex],scale=Math.min(W/390,H/610,1.05);
+ const cx=W/2,cy=H*.62;
+ // soft orbit
+ ctx.save();ctx.translate(cx,cy-40*scale);ctx.rotate(rotation*.22);
+ ctx.strokeStyle="rgba(242,202,255,.28)";ctx.lineWidth=1.2;ctx.beginPath();ctx.ellipse(0,0,145*scale,48*scale,0,0,Math.PI*2);ctx.stroke();
+ ctx.strokeStyle="rgba(255,216,165,.22)";ctx.beginPath();ctx.ellipse(0,0,164*scale,61*scale,0,.15,Math.PI*1.8);ctx.stroke();ctx.restore();
+ // floaty hearts
+ if(!prefersReduced&&Math.random()<.035)hearts.push({x:Math.random()*W,y:H+10,v:0.5+Math.random()*.8,s:8+Math.random()*9,a:.8});
+ hearts=hearts.filter(h=>h.y>-30);hearts.forEach(h=>{h.y-=h.v;h.x+=Math.sin(time*.001+h.y*.02)*.35;ctx.globalAlpha=h.a;ctx.fillStyle="#ff9dbf";ctx.font=h.s+"px sans-serif";ctx.fillText("♥",h.x,h.y);});ctx.globalAlpha=1;
+ // four point stars
+ for(let i=0;i<9;i++){const x=W*(.1+(i*0.113)%0.82),y=H*(.13+((i*71)%63)/100);const a=.4+.5*Math.sin(time*.002+i*2);ctx.globalAlpha=a;ctx.fillStyle="#ffe8bd";ctx.beginPath();ctx.moveTo(x,y-5);ctx.lineTo(x+1.5,y-1.5);ctx.lineTo(x+5,y);ctx.lineTo(x+1.5,y+1.5);ctx.lineTo(x,y+5);ctx.lineTo(x-1.5,y+1.5);ctx.lineTo(x-5,y);ctx.lineTo(x-1.5,y-1.5);ctx.closePath();ctx.fill();}ctx.globalAlpha=1;
+ ctx.save();ctx.translate(cx,cy);ctx.rotate(rotation*.18);ctx.scale(scale,scale*(.94+tilt*.08));
+ // shadow
+ const shadow=ctx.createRadialGradient(0,130,8,0,130,160);shadow.addColorStop(0,"rgba(0,0,0,.42)");shadow.addColorStop(1,"rgba(0,0,0,0)");ellipse(0,130,165,28,shadow);
+ // three tiers
+ drawTier(0,8,128,58,19,pal,true);
+ drawTier(0,68,188,66,23,pal,true);
+ drawTier(0,136,248,76,27,pal,true);
+ // tiny gold star decorations
+ for(let i=0;i<12;i++){const x=-100+(i*37%200),y=164+(i*19%38);ctx.fillStyle=pal.accent;ctx.beginPath();ctx.arc(x,y,1.7,0,Math.PI*2);ctx.fill();}
+ // berries and macarons
+ drawStrawberry(-70,8,.75);drawStrawberry(73,11,.68);drawStrawberry(-94,86,.65);drawMacaron(58,69,.72,pal);drawMacaron(-78,134,.8,pal);
+ // candle
+ roundedRect(27,-35,9,43,3,"#fff6e8",pal.accent,1.2);
+ ctx.strokeStyle="#e6b2c4";ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(31,-31);ctx.lineTo(31,-20);ctx.stroke();
+ drawFlame(31,-52,time);
+ // nameplate
+ roundedRect(-65,93,130,31,9,"rgba(255,255,255,.92)",pal.accent,2);
+ ctx.fillStyle="#87607a";ctx.font="600 15px 'Noto Sans SC',sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText("慧颖 · 21",0,109);
+ // particle mouse perched on cake
+ drawMouse(-4,-48,time);
+ ctx.restore();
+ // candle click glow / caption
+ ctx.fillStyle="rgba(255,255,255,.55)";ctx.font="11px 'Noto Sans SC',sans-serif";ctx.textAlign="center";ctx.fillText(flameOn?"点一下小火焰，许个愿":"愿望已送达 ✨",W/2,H*.12);
+ // sparks
+ sparks=sparks.filter(p=>p.life>0);
+ sparks.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.035;p.vx*=.986;p.life--;ctx.globalAlpha=Math.max(0,p.life/p.max);ctx.fillStyle="hsl("+p.hue+" 95% 75%)";ellipse(p.x,p.y,p.size,p.size,ctx.fillStyle);});ctx.globalAlpha=1;
+}
+function startLoop(){if(running||prefersReduced)return;running=true;const tick=(t)=>{if(!running)return;draw(t);raf=requestAnimationFrame(tick);};raf=requestAnimationFrame(tick);}
+function stopLoop(){running=false;if(raf)cancelAnimationFrame(raf);raf=0;}
+function renderOnce(){if(prefersReduced)draw(performance.now());}
+function switchToCake(){intro.classList.remove("active");cakePage.classList.add("active");resize();if(!prefersReduced)startLoop();}
+function switchToIntro(){stopLoop();cakePage.classList.remove("active");intro.classList.add("active");}
+$("enterCake").addEventListener("click",switchToCake);
+$("backHeart").addEventListener("click",switchToIntro);
+window.addEventListener("resize",()=>{if(cakePage.classList.contains("active"))resize();});
+
+function extinguish(){
+ if(!flameOn){toast("蜡烛已经吹灭啦，再点一下可以重新点燃");return;}
+ flameOn=false;burst(W/2+31,H*.62-52,95,true);$("blessing").classList.add("show");toast("愿望已发射！生日快乐，慧颖 🎉");renderOnce();
+}
+function relight(){flameOn=true;$("blessing").classList.remove("show");toast("蜡烛重新点亮啦");renderOnce();}
+canvas.addEventListener("pointerdown",e=>{const r=canvas.getBoundingClientRect();drag={x:e.clientX-r.left,y:e.clientY-r.top,lastX:e.clientX,lastY:e.clientY,moved:false,rot:rotation,tilt:tilt};canvas.setPointerCapture(e.pointerId);});
+canvas.addEventListener("pointermove",e=>{
+ if(!drag)return;const dx=e.clientX-drag.lastX,dy=e.clientY-drag.lastY;
+ if(Math.abs(e.clientX-drag.x)+Math.abs(e.clientY-drag.y)>5)drag.moved=true;
+ rotation+=dx*.009;tilt=Math.max(-1,Math.min(1,tilt+dy*.008));drag.lastX=e.clientX;drag.lastY=e.clientY;
+ if(prefersReduced)draw(performance.now());
+});
+canvas.addEventListener("pointerup",e=>{
+ if(!drag)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,moved=drag.moved;drag=null;
+ if(!moved){
+  const candleX=W/2+31,candleY=H*.62-52;
+  if(Math.abs(x-candleX)<48&&Math.abs(y-candleY)<58){if(flameOn)extinguish();else relight();}
+  else{burst(x,y,55,true);renderOnce();}
+ }
+});
+canvas.addEventListener("pointercancel",()=>drag=null);
+$("fireworkBtn").addEventListener("click",()=>{for(let i=0;i<4;i++)setTimeout(()=>burst(W*(.2+Math.random()*.6),H*(.2+Math.random()*.38),65,true),i*170);renderOnce();});
+$("themeBtn").addEventListener("click",()=>{themeIndex=(themeIndex+1)%themes.length;toast(["草莓奶油色","星空蓝莓色","薄荷抹茶色"][themeIndex]);renderOnce();});
+
+let micStream=null,micContext=null,micFrame=0;
+async function stopMic(){
+ if(micFrame)cancelAnimationFrame(micFrame);micFrame=0;
+ if(micStream){micStream.getTracks().forEach(t=>t.stop());micStream=null;}
+ if(micContext){try{await micContext.close();}catch(e){}micContext=null;}
+}
+$("micBtn").addEventListener("click",async()=>{
+ if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){toast("当前环境无法使用麦克风，请直接点蜡烛火焰");return;}
+ try{
+  toast("正在听你吹气…");
+  micStream=await navigator.mediaDevices.getUserMedia({audio:true});
+  const AC=window.AudioContext||window.webkitAudioContext;
+  if(!AC)throw new Error("AudioContext unavailable");
+  micContext=new AC();const source=micContext.createMediaStreamSource(micStream),analyser=micContext.createAnalyser();
+  analyser.fftSize=512;source.connect(analyser);const data=new Uint8Array(analyser.fftSize);let loud=0,frames=0;
+  const check=()=>{
+   if(!micStream)return;
+   analyser.getByteTimeDomainData(data);let sum=0;
+   for(let i=0;i<data.length;i++){const v=(data[i]-128)/128;sum+=v*v;}
+   const rms=Math.sqrt(sum/data.length);
+   if(rms>.085){loud++;}else{loud=Math.max(0,loud-1);}
+   frames++;
+   if(loud>7){stopMic();extinguish();return;}
+   if(frames>500){stopMic();toast("没听到明显的吹气声，再试一次，或直接点蜡烛");return;}
+   micFrame=requestAnimationFrame(check);
+  };
+  check();
+ }catch(err){await stopMic();toast("麦克风不可用或未授权，请直接点蜡烛火焰");}
+});
+document.addEventListener("visibilitychange",()=>{if(document.hidden)stopMic();});
+resize();
+})();
+</script>
+</body>
+</html>
